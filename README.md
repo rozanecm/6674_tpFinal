@@ -1,5 +1,5 @@
 # TP final de Señales y Sistemas
-Para ver el notebook con el desarrollo, [click aqui](notebooks/Ejercicios.ipynb).
+Para ver el notebook con el desarrollo, [click aqui](notebooks/Ejercicios.ipynb). Para ver su versión en HTML, [click aquí](Ejercicios.html).
 
 # Instructions to run notebook
 Create a `python 3` virtual env with the command `virtualenv -p python3 venv`.
