@@ -13116,6 +13116,22 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introduccion">Introduccion<a class="anchor-link" href="#Introduccion">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>El presente trabajo se encuentra en su totalidad en <a href="https://github.com/rozanecm/6674_tpFinal">https://github.com/rozanecm/6674_tpFinal</a></p>
+<p>Si por alguna razon el pdf no se visualiza bien, acceder mediante el link.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Imports">Imports<a class="anchor-link" href="#Imports">&#182;</a></h1>
 </div>
 </div>
@@ -14807,6 +14823,99 @@ Cual es correcta? A mi me parecia que debia estar centrado en <code>t=0</code> p
 <h1 id="Ejercicio-11">Ejercicio 11<a class="anchor-link" href="#Ejercicio-11">&#182;</a></h1>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[169]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">theta_az</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">phi_0</span><span class="p">):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">apretura_angular_de_la_antena_en_acimut</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">longitud_de_onda</span><span class="o">*</span><span class="n">r_0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">phi_0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">chirp_az</span><span class="p">():</span>
+    <span class="n">T_az</span> <span class="o">=</span> <span class="p">(</span><span class="n">apretura_angular_de_la_antena_en_acimut</span><span class="o">*</span><span class="n">r_0</span><span class="p">)</span><span class="o">/</span><span class="n">v</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="o">-</span><span class="n">T_az</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="n">T_az</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="n">PRF</span><span class="o">*</span><span class="n">T_az</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">theta_az</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Duracion temporal: si va de -T_az/2 a T_az/2, la duracion total es T_az</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[170]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T_az</span> <span class="o">=</span> <span class="p">(</span><span class="n">apretura_angular_de_la_antena_en_acimut</span><span class="o">*</span><span class="n">r_0</span><span class="p">)</span><span class="o">/</span><span class="n">v</span>
+<span class="n">T_az</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[170]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>7.475138888888888</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[172]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la duracion es de &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">T_az</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; segundos.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>la duracion es de 7.475138888888888 segundos.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
